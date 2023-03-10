@@ -1,133 +1,50 @@
+import Link from 'next/link';
 import React from 'react'
 
-function Products() {
+export default function Products(props) {
   return (
-    <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
+    <>
+      <h2>Products </h2>
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Price</th>
+            <th scope="col">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.products.map(post => (
+            <tr key={post.id}>
+              <td>{post.id}</td>
+              <td><img src={post.thumbnail} height="50" width="50" /></td>
+              <td><Link href={`/products/${post.id}`} key={post.id}>{post.title}</Link></td>
+              <td>{post.brand}</td>
+              <td>{post.stock}</td>
+              <td>${post.price}</td>
+              <td>${post.rating}</td>
             </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1,001</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>layout</td>
-            </tr>
-            <tr>
-              <td>1,003</td>
-              <td>data</td>
-              <td>rich</td>
-              <td>dashboard</td>
-              <td>tabular</td>
-            </tr>
-            <tr>
-              <td>1,003</td>
-              <td>information</td>
-              <td>placeholder</td>
-              <td>illustrative</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,004</td>
-              <td>text</td>
-              <td>random</td>
-              <td>layout</td>
-              <td>dashboard</td>
-            </tr>
-            <tr>
-              <td>1,005</td>
-              <td>dashboard</td>
-              <td>irrelevant</td>
-              <td>text</td>
-              <td>placeholder</td>
-            </tr>
-            <tr>
-              <td>1,006</td>
-              <td>dashboard</td>
-              <td>illustrative</td>
-              <td>rich</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,007</td>
-              <td>placeholder</td>
-              <td>tabular</td>
-              <td>information</td>
-              <td>irrelevant</td>
-            </tr>
-            <tr>
-              <td>1,008</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
-            </tr>
-            <tr>
-              <td>1,009</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>layout</td>
-            </tr>
-            <tr>
-              <td>1,010</td>
-              <td>data</td>
-              <td>rich</td>
-              <td>dashboard</td>
-              <td>tabular</td>
-            </tr>
-            <tr>
-              <td>1,011</td>
-              <td>information</td>
-              <td>placeholder</td>
-              <td>illustrative</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,012</td>
-              <td>text</td>
-              <td>placeholder</td>
-              <td>layout</td>
-              <td>dashboard</td>
-            </tr>
-            <tr>
-              <td>1,013</td>
-              <td>dashboard</td>
-              <td>irrelevant</td>
-              <td>text</td>
-              <td>visual</td>
-            </tr>
-            <tr>
-              <td>1,014</td>
-              <td>dashboard</td>
-              <td>illustrative</td>
-              <td>rich</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <td>1,015</td>
-              <td>random</td>
-              <td>tabular</td>
-              <td>information</td>
-              <td>text</td>
-            </tr>
-          </tbody>
-        </table>
+          )
+          )}
+        </tbody>
+      </table>
+    </>
   )
 }
 
-export default Products
+export async function getStaticProps() {
+  const res = await fetch("https://dummyjson.com/products?limit=10");
+  const data = await res.json();
+
+  return {
+    props: {
+      products: data.products
+    }
+  }
+}
+
+
