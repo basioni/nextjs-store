@@ -14,7 +14,7 @@ function App({ Component, pageProps }) {
     <>
 
       
-      <div class="container-fluid text-center">
+      <div class="container-fluid">
         <div class="row">
           <div class="col">
           <Navbar></Navbar>
@@ -24,7 +24,8 @@ function App({ Component, pageProps }) {
           <div class="col-md-3 col-lg-2">
             <Sidebar/>
           </div>
-          <div class="col-9">
+          <div class="col-9 gx-5">
+            
           <Component {...pageProps} />
           </div>
         </div>
