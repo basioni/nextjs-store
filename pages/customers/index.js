@@ -25,8 +25,8 @@ export default function Customers(props) {
               {props.customers.map(post => (
                 <tr key={post.id} class="align-middle">
                   <td>{post.id}</td>
-                  <td><Link href={`/products/${post.id}`} key={post.id}><img src={post.image} height="50" width="50" />{post.username}</Link></td>
-                  <td><Link href={`/products/${post.id}`} key={post.id}>{post.firstName} {post.maidenName}</Link></td>
+                  <td><Link href={`/customers/${post.id}`} key={post.id}><img src={post.image} height="50" width="50" />{post.username}</Link></td>
+                  <td><Link href={`/customers/${post.id}`} key={post.id}>{post.firstName} {post.maidenName}</Link></td>
                   <td>{post.email}</td>
                   <td>{post.phone}</td>
                   <td>{post.address.address}</td>

@@ -29,10 +29,6 @@ export default function Products(props) {
                         <td>${props.product.price}</td>
                       </tr>
                       <tr>
-                        <th scope="row"><b>Discount Percentage:</b></th>
-                        <td>{props.product.discountPercentage}%</td>
-                      </tr>
-                      <tr>
                         <th scope="row"><b>Stock:</b></th>
                         <td>{props.product.stock}</td>
                       </tr>
