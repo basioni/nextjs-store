@@ -13,24 +13,24 @@ function App({ Component, pageProps }) {
   return (
     <>
 
-      
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col">
-          <Navbar></Navbar>
+
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col">
+            <Navbar/>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-3 col-lg-2">
-            <Sidebar/>
+        <div className="row">
+          <div className="col-md-3 col-lg-2">
+            <Sidebar />
           </div>
-          <div class="col-9 gx-5">
-            
-          <Component {...pageProps} />
+          <div className="col-9 gx-5">
+
+            <Component {...pageProps} />
           </div>
         </div>
       </div>
-      
+
     </>
   )
 }

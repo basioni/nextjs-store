@@ -11,7 +11,7 @@ export default function Orders(props) {
           <table class="table table-striped table-sm">
             <thead>
               <tr>
-                <th scope="col">ID</th>
+                <th scope="col">Order ID</th>
                 <th scope="col">user</th>
                 <th scope="col">total</th>
                 <th scope="col">Discounted Total</th>
