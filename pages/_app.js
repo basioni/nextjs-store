@@ -5,6 +5,12 @@ import { useEffect } from "react";
 import Head from 'next/head';
 import Sidebar from '../components/Sidebar';
 
+// import Chart.js
+import Chart from "chart.js/auto";
+import { CategoryScale } from "chart.js";
+import { useState } from "react";
+import { Data } from '../models/chartData';
+
 function App({ Component, pageProps }) {
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
